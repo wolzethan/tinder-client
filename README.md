@@ -2,7 +2,7 @@
 Basic beginning structure for new node app
 
 ## Installation
-In order to install this application you will first need to have NodeJs installed.  You can get Node from [here]('http://nodejs.org')
+In order to install this application you will first need to have NodeJs installed.  You can get Node from [here](http://nodejs.org)
 
 - Once you have node installed and the repository cloned you need to run
 
