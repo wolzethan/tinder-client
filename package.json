@@ -1,0 +1,22 @@
+{
+  "name": "baby-cerebro",
+  "version": "1.0.0",
+  "description": "Client Version of Cerebro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ethan Wolz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.4.10",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "socket.io": "^1.4.5",
+    "uuid": "^2.0.1"
+  }
+}
