@@ -5,13 +5,13 @@ Basic beginning structure for new node app
 In order to install this application you will first need to have NodeJs installed.  You can get Node from [here]('http://nodejs.org')
 
 - Once you have node installed and the repository cloned you need to run
-  
-  ```
-   npm install
-  ```
-  
+
+```
+  npm install
+```
+
   this will install the necessary packages for the App into the 'node_modules' repository.
-  
+
 - since this is connected to a MongoDB in localhost you will need to make sure you have MongoDB installed.
 - Once installed you need to make sure it is running by running the command
 
