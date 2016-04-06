@@ -43,7 +43,7 @@ Bower was used to install all of the necessary front end dependencies like angul
 
 You can do this by running
 ```
-npm install -g Bower
+npm install -g bower
 ```
 once you have bower installed make sure you are in the root directory of your app
 you will then install the dependencies by Running
