@@ -2,10 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>CEREBRO</title>
+    <title>Template</title>
+    <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
   </head>
-  <body>
-    <h1>WELCOME TO CEREBRO</h1>
-    <button>CLICK HERE FOR A PARTY</button>
+  <body ng-app="babyCerebro">
+
+      <div class="container">
+        <div ui-view></div>
+      </div>
+
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
   </body>
 </html>

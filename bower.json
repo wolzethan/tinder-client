@@ -1,0 +1,16 @@
+{
+  "name": "node-basic-template",
+  "description": "Client Version of Cerebro",
+  "authors": [
+    "Ethan Wolz"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/eyeballdivisionLLC/node-basic",
+  "moduleType": [],
+  "private": true,
+  "dependencies": {
+    "angular": "~1.5.3",
+    "angular-ui-router": "~0.2.18",
+    "bootstrap": "~3.3.6"
+  }
+}
