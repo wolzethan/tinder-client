@@ -10,8 +10,6 @@ var config  = require('./config');
 
 mongoose.connect(config.MONGOURI);
 
-require('./config/passport/passport')(passport);
-
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended : true}));
@@ -28,6 +26,7 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./config/passport/passport')(passport);
 require('./server/router')(app);
 
 app.get("*", function(req, res, next) {

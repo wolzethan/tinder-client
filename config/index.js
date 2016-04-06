@@ -1,5 +1,5 @@
 module.exports = {
-  "MONGOURI" : process.env.MONGO || "mongodb://localhost/baby_cerebro",
+  "MONGOURI" : process.env.MONGOLAB_URI || "mongodb://localhost/baby_cerebro",
   "DB" : {
     "HOST" : process.env.HOST,
     "USER" : process.env.USER,

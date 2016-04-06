@@ -1,5 +1,5 @@
 (function(){
-    var app = angular.module('babyCerebro', [
+    var app = angular.module('tinderClient', [
       'ui.router'
     ]);
 
