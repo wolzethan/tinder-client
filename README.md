@@ -1,4 +1,4 @@
-h# node-basic
+# MEAN STACK APP TEMPLATE
 Basic beginning structure for new node app
 
 ## Installation
