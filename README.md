@@ -1,5 +1,4 @@
-# MEAN STACK APP TEMPLATE
-Basic beginning structure for new node app
+# Tinder Client
 
 ## Installation
 
@@ -60,6 +59,10 @@ you should be good to go after this!
 ```
   node index.js
 ```
+## Getting Accounts
 
-If you see *BABY CEREBRO RUNNING ON 5000* Everything is working correctly
- - have fun playing with your new test app!
+- This app is still in the early stages of being anything really that cool but you will
+need to get a Tinder Access Token to place into the input.  Once you place a valid token click
+start and you will be able to get a group of users and then like all of them.
+
+- More functionality to come.
