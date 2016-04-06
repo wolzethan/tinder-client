@@ -25,9 +25,9 @@ In order to install this application you will first need to have NodeJs installe
 ```
 
 #### Bower
-- Bower was used to install all of the necessary front end dependencies like angular
-  - Conveniently enough I included a Bower.json file for you...
 
+Bower was used to install all of the necessary front end dependencies like angular
+- Conveniently enough I included a Bower.json file for you...
 - In order to install all of the dependencies you need make sure you install Bower
 
 You can do this by running
