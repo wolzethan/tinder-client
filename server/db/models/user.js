@@ -25,6 +25,16 @@ var UserSchema = new Schema({
     enum: ['Admin', 'Editor', 'User'],
     default: 'User'
   },
+  auth : {
+    accessToken : {
+      type : String,
+      default : "no auth"
+    },
+    expiresIn : {
+      type : Number,
+      default : 0
+    }
+  },
   blocks: [],
 });
 

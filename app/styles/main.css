@@ -2,7 +2,7 @@ body {
   padding-top: 30px;
 }
 
-ul {
+ul.people {
     column-count:5;
     -webkit-column-count:5;
     -moz-column-count:5;
@@ -11,4 +11,32 @@ ul {
 
 .pointer {
   cursor : pointer;
+}
+
+.main-view {
+  position: absolute;
+  left : 200px;
+}
+
+.auth-form {
+  max-width : 500px;
+  border: 1px solid lightgrey;
+  padding : 30px;
+  border-radius : 6px;
+}
+
+.auth-form > h2 {
+  margin-top : -20px;
+}
+
+.btn.btn-tinder {
+  background-color : #FC735D;
+  color: white;
+  font-size : 20px;
+  min-height : 60px;
+}
+
+.auth-form > div.form-group > input {
+  min-height : 60px;
+  font-size : 20px;
 }

@@ -1,10 +1,10 @@
 (function(){
   var app = angular.module('tinderClient');
 
-  var injectParams = ['$scope', 'Tinder'];
+  var injectParams = ['$scope', 'Tinder', 'Auth'];
 
-  var MainCtrl = function($scope, Tinder) {
-    $scope.firstMessage = "Tinder Time!";
+  var MainCtrl = function($scope, Tinder, Auth) {
+    $scope.firstMessage = "Welcome To Your Tinder Assistant!";
 
     $scope.start = function(token) {
       Tinder.setToken(token)
@@ -19,7 +19,6 @@
       $scope.recs = {};
       Tinder.getRecs()
             .success(function(data) {
-              console.log(data);
               if(data.success) {
                 $scope.recs = data.data.results;
               }
@@ -31,9 +30,34 @@
       for(var i = 0; i < accounts.length; i++) {
         Tinder.likeOne(accounts[i]._id)
             .success(function(data) {
-              console.log(data.result.match)
+              if(data.result.match) {
+                console.log(data.result);
+              }
             });
-      }
+          }
+    }
+
+    $scope.login = function(username, password) {
+      Auth.login(username, password)
+          .success(function(data) {
+            if(!data.success) {
+              return console.log("You are not logged in!");
+            } else {
+              $scope.me = data.user;
+            }
+          });
+    }
+
+    $scope.signup = function(username, password) {
+      Auth.signup(username, password)
+          .success(function(data) {
+            if(data.success) {
+                $scope.me = data.user;
+            }
+            else {
+              console.log(data);
+            }
+          });
     }
 
     $scope.likeOne = function(id) {

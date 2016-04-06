@@ -8,7 +8,7 @@ module.exports = function(passport) {
       success : true,
       user    : req.user
     });
-    
+
   });
 
   return router;
