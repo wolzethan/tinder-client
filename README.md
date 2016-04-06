@@ -18,6 +18,17 @@ In order to install this application you will first need to have NodeJs installe
 #### MongoDB
 
 - since this is connected to a MongoDB in localhost you will need to make sure you have MongoDB installed.
+In my opinion the best way to to do this is by using HomeBrew to install homebrew run:
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+once installed you can simply run:
+
+```
+brew install mongodb
+```
+
 - Once installed you need to make sure it is running by running the command
 
 ```
