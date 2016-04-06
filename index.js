@@ -10,10 +10,14 @@ var config  = require('./config');
 
 mongoose.connect(config.MONGOURI);
 
+
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static(__dirname + "/app"));
+
+// Configuring our Passport Strategies
+require('./config/passport/passport')(passport);
 
 app.use(require('express-session')({
   genid : function(req) {
@@ -26,12 +30,11 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./config/passport/passport')(passport);
-require('./server/router')(app);
+require('./server/router')(app, passport);
 
 app.get("*", function(req, res, next) {
   res.status(200).sendFile(__dirname + "/app/index.html");
 });
 
 app.listen(config.PORT);
-console.log("BABY CEREBRO RUNNING ON", config.PORT);
+console.log("Matchmaker Running On...", config.PORT);
