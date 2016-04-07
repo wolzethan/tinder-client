@@ -21,6 +21,14 @@
       return $http.post('/api/like/all', {users : users});
     }
 
+    this.getHistory = function() {
+      return $http.get('/api/history');
+    }
+
+    this.sendMessage = function(id, message) {
+      return $http.post('/api/message/' + id, {message : message});
+    }
+
     return this;
   }
 

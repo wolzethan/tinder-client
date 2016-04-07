@@ -13,10 +13,10 @@ ul.people {
   cursor : pointer;
 }
 
-.main-view {
+/*.main-view {
   position: absolute;
   left : 200px;
-}
+}*/
 
 .auth-form {
   max-width : 500px;

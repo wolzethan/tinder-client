@@ -22,5 +22,7 @@ router.get('/me', function(req, res) {
 router.use('/recs', require('./recs'));
 router.use('/start', require('./start'));
 router.use('/like', require('./like'));
+router.use('/message', require('./message'));
+router.use('/history', require('./matches'));
 
 module.exports = router;

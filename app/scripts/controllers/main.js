@@ -67,6 +67,20 @@
             });
     }
 
+    $scope.getHistory = function() {
+      Tinder.getHistory()
+            .success(function(data){
+              console.log(data);
+            });
+    }
+
+    $scope.sendMessage = function(id, message) {
+      Tinder.sendMessage(id, message)
+            .success(function(data) {
+              console.log(data);
+            });
+    }
+
 
   }
 
