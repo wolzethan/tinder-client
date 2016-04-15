@@ -1,0 +1,26 @@
+<div class="container text-center">
+  <ng-form name="signup">
+  <div class="auth-form">
+    <div class="login-icon">
+      <img src="http://www.tindertantrums.com/wp-content/uploads/2014/06/Tinder-Flame.png" height="250px">
+    </div>
+    <h2 class="header-text">SIGN UP</h2>
+    <div class="page-header"></div>
+
+    <div class="form-group text-left">
+      <label>Username</label>
+      <input class="form-control" placeholder="Enter your username" required>
+    </div>
+    <div class="form-group text-left">
+      <label>Password</label>
+      <input class="form-control" type="password" placeholder="Enter your Password" required>
+    </div>
+    <button ng-click="createAccount()"
+      class="btn btn-tinder btn-block"
+      ng-disabled="signup.$invalid">
+      Sign Up
+    </button><br>
+    <a ui-sref="login">I Already Have An Account!</a>
+  </div>
+</ng-form>
+</div>

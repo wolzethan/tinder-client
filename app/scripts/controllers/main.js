@@ -1,10 +1,28 @@
 (function(){
   var app = angular.module('tinderClient');
 
-  var injectParams = ['$scope', 'Tinder', 'Auth'];
+  var injectParams = ['$scope', 'Tinder', 'Auth', '$location'];
 
-  var MainCtrl = function($scope, Tinder, Auth) {
+  var MainCtrl = function($scope, Tinder, Auth, $location) {
     $scope.firstMessage = "Welcome To Your Tinder Assistant!";
+
+    //NOTE: First Call should be a call to check if user is logged in
+    //If user is not logged in redirect to the log in window....
+
+    function init() {
+      $scope.loggedIn = false;
+      Auth.checkUser()
+          .success(function(info) {
+            console.log(info);
+            if(info.success) {
+              return $scope.loggedIn = true;
+            }
+
+            return $location.path('/login');
+          });
+    }
+
+    init();
 
     $scope.start = function(token) {
       Tinder.setToken(token)

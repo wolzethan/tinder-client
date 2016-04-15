@@ -9,7 +9,11 @@
         $stateProvider
           .state('home', {
             url : "/home",
-            templateUrl : "views/partials/home.html",
+            templateUrl : "views/pages/home.html"
+          })
+          .state('tool', {
+            url : "/tool",
+            templateUrl : "views/partials/tool.html",
             controller  : "MainCtrl"
           })
           .state('login', {

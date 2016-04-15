@@ -17,6 +17,10 @@
       });
     }
 
+    this.checkUser = function() {
+      return $http.get('/user');
+    }
+
     return this;
   }];
 
