@@ -22,7 +22,7 @@
           })
           .state('signup', {
             url : "/signup",
-            templateUrl : "views/partials/auth/signup.html",
+            templateUrl : "views/partials/auth/signup.html"
           });
     });
 

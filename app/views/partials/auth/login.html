@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center" ng-controller="AuthCtrl as vm">
   <div class="auth-form">
     <div class="login-icon">
       <img src="http://www.tindertantrums.com/wp-content/uploads/2014/06/Tinder-Flame.png" height="250px">
@@ -8,13 +8,19 @@
 
     <div class="form-group text-left">
       <label>Username</label>
-      <input class="form-control" placeholder="Enter your username">
+      <input class="form-control"
+        ng-model="vm.username"
+        placeholder="Enter your username">
     </div>
     <div class="form-group text-left">
       <label>Password</label>
-      <input class="form-control" type="password" placeholder="Enter your Password">
+      <input class="form-control"
+        type="password"
+        ng-model="vm.password"
+        placeholder="Enter your Password">
     </div>
-    <button ng-click="login()"class="btn btn-tinder btn-block">
+
+    <button ng-click="vm.login()"class="btn btn-tinder btn-block">
       Log In
     </button><br>
     <a ui-sref="signup">I Need An Account!</a>

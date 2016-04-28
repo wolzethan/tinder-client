@@ -19,10 +19,11 @@ module.exports = function(passport) {
   }, function(req, username, password, done) {
     process.nextTick(function() {
 
-
       User.findOne({
         'username': username
-      }, function(err, user) {
+      })
+      .select('-password')
+      .exec(function(err, user) {
         if (err) {
           return done(err);
         }
@@ -53,7 +54,8 @@ module.exports = function(passport) {
   }, function(req, username, password, done) {
     User.findOne({
       'username': username
-    }, function(err, user) {
+    })
+    .exec(function(err, user) {
       if (err) {
         return done(err);
       }

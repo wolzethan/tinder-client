@@ -55,29 +55,6 @@
           }
     }
 
-    $scope.login = function(username, password) {
-      Auth.login(username, password)
-          .success(function(data) {
-            if(!data.success) {
-              return console.log("You are not logged in!");
-            } else {
-              $scope.me = data.user;
-            }
-          });
-    }
-
-    $scope.signup = function(username, password) {
-      Auth.signup(username, password)
-          .success(function(data) {
-            if(data.success) {
-                $scope.me = data.user;
-            }
-            else {
-              console.log(data);
-            }
-          });
-    }
-
     $scope.likeOne = function(id) {
       Tinder.likeOne(id)
             .success(function(data) {
