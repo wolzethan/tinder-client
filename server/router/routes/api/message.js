@@ -7,7 +7,7 @@ var client = new tinder.TinderClient();
 
 router.post('/:user_id', function(req, res, next) {
   if (!req.body.message) {
-    return res.send({
+    return res.status(400).send({
       success: false,
       message: "You need to include a message in your request"
     });
@@ -22,7 +22,7 @@ router.post('/:user_id', function(req, res, next) {
         req.body.message,
         function(err, result) {
           if (err) {
-            return res.send({
+            return res.status(400).send({
               success: false,
               error: err
             });

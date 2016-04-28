@@ -5,7 +5,7 @@ var BASE    = "https://graph.facebook.com/v2.5/"
 
 router.post('/', function(req, res, next) {
   if(!req.body.token) {
-    return res.send({
+    return res.status(401).send({
       success : false,
       message : "No Token Provided"
     });

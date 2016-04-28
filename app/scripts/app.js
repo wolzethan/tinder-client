@@ -14,7 +14,7 @@
           .state('tool', {
             url : "/tool",
             templateUrl : "views/partials/tool.html",
-            controller  : "MainCtrl"
+            controller  : "TinderCtrl"
           })
           .state('login', {
             url : "/login",

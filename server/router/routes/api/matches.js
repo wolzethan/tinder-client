@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     function() {
       client.getHistory(function(err, results) {
         if (err) {
-          return res.send({
+          return res.status(401).send({
             success: false,
             error: err
           });

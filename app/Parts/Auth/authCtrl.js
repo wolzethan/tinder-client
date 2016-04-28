@@ -3,21 +3,36 @@
 
   var AuthCtrl = [
     'Auth',
+    '$location',
 
-    function(Auth) {
+    function(Auth, $location) {
       var vm = this;
+      vm.notLoggedIn = false;
+
+      function init() {
+        Auth.checkUser()
+            .then(function() {
+              if(Auth.user) {
+                $location.path('/tool');
+              } else {
+                vm.notLoggedIn = true;
+              }
+            });
+      }
+      
+      init();
 
       vm.login = function() {
         Auth.login(vm.username, vm.password)
             .then(function() {
-              console.log(Auth);
+              $location.path('/tool');
             });
       }
 
       vm.signup = function() {
         Auth.signup(vm.username, vm.password)
             .then(function() {
-              console.log(Auth);
+              $location.path('/tool');
             });
       }
 

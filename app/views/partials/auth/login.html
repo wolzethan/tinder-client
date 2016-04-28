@@ -1,4 +1,6 @@
-<div class="container text-center" ng-controller="AuthCtrl as vm">
+<div class="container text-center"
+  ng-controller="AuthCtrl as vm">
+  <div ng-if="vm.notLoggedIn">
   <div class="auth-form">
     <div class="login-icon">
       <img src="http://www.tindertantrums.com/wp-content/uploads/2014/06/Tinder-Flame.png" height="250px">
@@ -25,4 +27,5 @@
     </button><br>
     <a ui-sref="signup">I Need An Account!</a>
   </div>
+</div>
 </div>

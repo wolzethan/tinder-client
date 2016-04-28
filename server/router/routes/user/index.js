@@ -10,6 +10,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+});
+
 function UserAuthorized(req, res, next) {
   if(!req.user) {
     return res.send({
@@ -17,6 +22,8 @@ function UserAuthorized(req, res, next) {
       error   : "User not signed in"
     });
   }
+  delete req.user.password;
+  next();
 }
 
 module.exports = router;

@@ -15,7 +15,7 @@ router.route('/')
         client.like(id, function(err, result) {
 
           if (err) {
-            return res.send({
+            return res.status(401).send({
               success: false,
               error: err
             });
@@ -57,8 +57,7 @@ client.authorize(
 
       });
     }
-
-
+    
   });
 });
 

@@ -10,7 +10,7 @@ var client  = new tinder.TinderClient();
 
           client.getRecommendations(10, function(err, results) {
             if(err) {
-              return res.send({
+              return res.status(401).send({
                 success : false,
                 error   : err
               });
