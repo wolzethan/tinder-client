@@ -1,13 +1,14 @@
 (function(){
   var app = angular.module('tinderClient');
 
-  var injectParams = ['$http'];
+  var injectParams = ['$http', 'UserService'];
 
-  var TinderService = function($http) {
+  var TinderService = function($http, UserService) {
 
     var Tinder = this;
 
     this.setToken = function(token) {
+      UserService.saveToken(token);
       return $http.post('/api/start', {token : token})
              .success(function(data) {
                Tinder.token = token;

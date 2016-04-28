@@ -4,10 +4,23 @@
 var TinderCtrl = [
   '$scope',
   'Tinder',
+  'UserService',
 
-  function ($scope, Tinder) {
+  function ($scope, Tinder, UserService) {
     $scope.authenticated = false;
+    $scope.init = false;
+    
+    function init() {
+      UserService.checkForToken()
+        .then(function () {
+          if(UserService.token) {
+            $scope.authenticated = true;
+            $scope.init = true;
+          }
+        })
+    }
 
+    init();
     $scope.getRecommendations = function() {
       Tinder.getRecs()
             .then(function() {
