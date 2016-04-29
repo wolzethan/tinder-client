@@ -7,7 +7,7 @@
     this.saveToken = function(token) {
       return $http.post('/user/token', {accessToken : token})
                   .success(function(data) {
-                    alert("IT WORKED");
+                    console.log(data);
                   })
                   .error(function(err) {
                     alert("ERROR");
@@ -22,8 +22,18 @@
                 }
               })
               .error(function(err) {
-                return alert(err);
-              })
+                
+              });
+    }
+
+    this.addMatch = function(match) {
+      return $http.put('/user/matches', {match : match})
+                  .success(function(data) {
+                    console.log(data);
+                  })
+                  .error(function(err) {
+                    alert(err);
+                  })
     }
 
       return this;

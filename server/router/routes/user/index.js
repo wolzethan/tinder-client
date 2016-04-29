@@ -12,8 +12,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/logout', function(req, res, next) {
-  req.logout();
-  res.redirect('/');
+  req.session.destroy(function (err) {
+      res.redirect('/');
+    });
 });
 
 router.post('/token', function(req, res, next) {

@@ -12,14 +12,14 @@
       function init() {
         Auth.checkUser()
             .then(function() {
-              if(Auth.user) {
+              if(Auth.user !== null) {
                 $location.path('/tool');
               } else {
                 vm.notLoggedIn = true;
               }
             });
       }
-      
+
       init();
 
       vm.login = function() {

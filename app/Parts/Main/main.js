@@ -28,7 +28,7 @@
           }
         });
     }
-    
+
   }
 
   MainCtrl.$inject = injectParams;

@@ -1,73 +1,79 @@
-(function () {
+(function() {
   var app = angular.module('tinderClient');
 
-var TinderCtrl = [
-  '$scope',
-  'Tinder',
-  'UserService',
+  var TinderCtrl = [
+    '$scope',
+    'Tinder',
+    'UserService',
+    'Auth',
 
-  function ($scope, Tinder, UserService) {
-    $scope.authenticated = false;
-    $scope.init = false;
-    
-    function init() {
-      UserService.checkForToken()
-        .then(function () {
-          if(UserService.token) {
-            $scope.authenticated = true;
-            $scope.init = true;
-          }
-        })
-    }
+    function($scope, Tinder, UserService, Auth) {
+      $scope.authenticated = false;
+      $scope.init = false;
 
-    init();
-    $scope.getRecommendations = function() {
-      Tinder.getRecs()
-            .then(function() {
-              $scope.recs = Tinder.potentialMatches;
-            });
-    }
-
-    $scope.likeAll = function() {
-      var accounts = angular.copy($scope.recs);
-      var results  = [];
-      for(var i = 0; i < accounts.length; i++) {
-        Tinder.likeOne(accounts[i]._id)
+      function init() {
+        Auth.checkUser()
+          .then(function() {
+            UserService.checkForToken()
               .then(function() {
-                results.push(Tinder.results);
+                $scope.authenticated = true;
+                Tinder.setToken(UserService.token)
+                  .then(function() {
+                    $scope.init = true;
+                  });
               });
-          }
-    }
+          });
+      }
 
-    $scope.likeOne = function(id) {
-      Tinder.likeOne(id)
+      init();
+      $scope.getRecommendations = function() {
+        Tinder.getRecs()
+          .then(function() {
+            $scope.recs = Tinder.potentialMatches;
+          });
+      }
+
+      $scope.likeAll = function() {
+        var accounts = angular.copy($scope.recs);
+        var results = [];
+        for (var i = 0; i < accounts.length; i++) {
+          Tinder.likeOne(accounts[i]._id)
             .then(function() {
-              $scope.likeResult = Tinder.results;
-            })
-    }
-
-    $scope.getHistory = function() {
-      Tinder.getHistory()
-            .then(function() {
-              $scope.history = Tinder.history;
+              results.push(Tinder.results);
             });
-    }
+        }
+      }
 
-    $scope.sendMessage = function(id, message) {
-      Tinder.sendMessage(id, message)
-            .then(function () {
-              $scope.lastMessage = Tinder.lastMessageResult;
-            });
-    }
+      $scope.likeOne = function(id) {
+        Tinder.likeOne(id)
+          .then(function() {
+            $scope.likeResult = Tinder.results;
+          })
+      }
 
-    $scope.start = function(token) {
-      Tinder.setToken(token)
-            .then(function () {
-              $scope.authenticated = true;
-            });
-    }
+      $scope.getHistory = function() {
+        Tinder.getHistory()
+          .then(function() {
+            $scope.history = Tinder.history;
+          });
+      }
 
-}];
+      $scope.sendMessage = function(id, message) {
+        Tinder.sendMessage(id, message)
+          .then(function() {
+            $scope.lastMessage = Tinder.lastMessageResult;
+          });
+      }
+
+      $scope.start = function(token) {
+        Tinder.setToken(token)
+          .then(function() {
+            $scope.authenticated = true;
+          });
+      }
+
+    }
+  ];
 
   app.controller('TinderCtrl', TinderCtrl);
 }())
