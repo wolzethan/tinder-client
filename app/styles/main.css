@@ -24,6 +24,7 @@ ul.people {
   padding : 30px;
   border-radius : 6px;
   margin : auto;
+  background-color: white;
 }
 
 .auth-form > h2 {
