@@ -47,11 +47,12 @@ router.post('/token', function(req, res, next) {
 
 function UserAuthorized(req, res, next) {
   if(!req.user) {
-    return res.send({
+    return res.status(401).send({
       success : false,
       error   : "User not signed in"
     });
   }
+
   next();
 }
 

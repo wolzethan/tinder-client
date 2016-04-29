@@ -10,14 +10,10 @@
       vm.notLoggedIn = false;
 
       function init() {
-        Auth.checkUser()
-            .then(function() {
-              if(Auth.user !== null) {
-                $location.path('/tool');
-              } else {
-                vm.notLoggedIn = true;
-              }
-            });
+        if(Auth.loggedIn) {
+            return $location.path('/tool');
+        }
+        vm.notLoggedIn = true;
       }
 
       init();

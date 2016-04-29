@@ -7,7 +7,9 @@
     this.saveToken = function(token) {
       return $http.post('/user/token', {accessToken : token})
                   .success(function(data) {
-                    console.log(data);
+                    if(!data.success) {
+                      alert(data);
+                    }
                   })
                   .error(function(err) {
                     alert("ERROR");
@@ -17,12 +19,10 @@
     this.checkForToken = function() {
       return $http.get('/user')
               .success(function(data) {
-                if(data.user.auth.accessToken) {
                   Me.token = data.user.auth.accessToken;
-                }
               })
               .error(function(err) {
-                
+                alert(err);
               });
     }
 

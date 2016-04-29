@@ -1,3 +1,24 @@
 <div ng-controller="NavCtrl as nav">
-  {{nav.loggedIn}}
+  <div class="nav-bar-left">
+  <div class="text-center">
+    <div class="profile-image-div">
+      <span class="glyphicon glyphicon-fire"></span>
+    </div>
+  </div>
+  <div class="nav-side-container">
+    <ul class="nav-bar-left-list-top">
+      <li class="expanded"><span class="glyphicon glyphicon-fire"></span> Matches</li>
+      <li class="expanded"><span class="glyphicon glyphicon-repeat"></span> Automation</li>
+      <li class="expanded"><i class="fa fa-cog" aria-hidden="true"></i> Settings</li>
+      <li class="collapsed"><span class="glyphicon glyphicon-fire"></span></li>
+      <li class="collapsed"><span class="glyphicon glyphicon-repeat"></span></li>
+      <li class="collapsed"><i class="fa fa-cog" aria-hidden="true"></i></li>
+    </ul>
+  </div>
+  <div class="bottom nav-side-container">
+    <ul class="nav-bar-left-list-bottom">
+      <li><span class="glyphicon glyphicon-log-out"></span> Log out</li>
+    </ul>
+  </div>
+  </div>
 </div>

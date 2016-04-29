@@ -14,18 +14,25 @@
       function init() {
         Auth.checkUser()
           .then(function() {
+            Auth.loggedIn = true;
             UserService.checkForToken()
               .then(function() {
-                $scope.authenticated = true;
-                Tinder.setToken(UserService.token)
-                  .then(function() {
-                    $scope.init = true;
-                  });
+                if(UserService.token !== 'no auth') {
+                  $scope.authenticated = true;
+                  Tinder.setToken(UserService.token)
+                    .then(function() {
+                      $scope.init = true;
+                    });
+                } else {
+                  $scope.authenticated = false;
+                  $scope.init = true;
+                }
               });
           });
       }
 
       init();
+
       $scope.getRecommendations = function() {
         Tinder.getRecs()
           .then(function() {

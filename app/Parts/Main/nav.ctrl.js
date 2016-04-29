@@ -11,15 +11,15 @@
       var vm = this;
       vm.loggedIn = false;
 
-      //Make sure user is logged in
       $scope.$watch(angular.bind(this, function() {
-        return Auth.user;
-      }),
-      function (newVal) {
-        if(newVal !== undefined) {
-          console.log(newVal);
+        return Auth.loggedIn;
+      }), function(newVal) {
+        if(newVal === true) {
+          vm.loggedIn = true;
         }
       });
+
+      
 
     }];
 

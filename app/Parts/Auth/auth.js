@@ -34,22 +34,18 @@
     }
 
     this.logout = function() {
-      return $http.get('/user/logout');
       auth.loggedIn = false;
+      auth.user = null;
+      return $http.get('/user/logout');
     }
 
     this.checkUser = function() {
       return $http.get('/user')
               .success(function(data) {
-                if(data.success) {
                   auth.user = data.user;
-                }
-                else {
-                  auth.user = null;
-                }
               })
               .error(function(err) {
-                NotificationFactory.showError(err);
+                  $location.path('/login');
               });
     }
 
