@@ -1,0 +1,53 @@
+.dashboard-panel-5-left {
+  background-color : white;
+  width : 50%;
+  padding : 20px;
+  height : 500px;
+  margin-left : -25px;
+  margin-right : 1px;
+  display: inline-block;
+  overflow : scroll;
+
+}
+.dashboard-panel-5-right {
+  background-color : white;
+  width : 50%;
+  padding : 20px;
+  height : 500px;
+  display: inline-block;
+  overflow : scroll;
+
+}
+
+.dashboard-panel-middle {
+  background-color : white;
+
+}
+
+.dashboard-container {
+  width : calc(100% - 220px);
+  margin-left: 210px;
+  margin-right : 10px;
+  padding-left : -300px;
+  word-spacing: -1;
+}
+
+.dashboard-panel-middle {
+  background-color : white;
+  width : 100%;
+  height : 635px;
+  display: inline-block;
+  margin-left : -25px;
+  margin-top : 5px;
+  padding : 20px;
+  overflow : scroll;
+}
+
+.large-match-number {
+  font-size : 100px;
+  color : #FC735D;
+}
+
+.rec-container {
+  display: inline-block;
+}

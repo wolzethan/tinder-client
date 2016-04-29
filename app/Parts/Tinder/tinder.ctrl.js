@@ -11,16 +11,33 @@
       $scope.authenticated = false;
       $scope.init = false;
 
+      function returnMatches () {
+        Tinder.getHistory()
+              .then(function() {
+                $scope.history = Tinder.history;
+                UserService.setMatches(Tinder.history.matches);
+              });
+      }
+      function getRecs () {
+        Tinder.getRecs()
+              .then(function () {
+                $scope.recs = Tinder.potentialMatches;
+              })
+      }
+
       function init() {
         Auth.checkUser()
           .then(function() {
             Auth.loggedIn = true;
+            $scope.matches = Auth.user.matches;
             UserService.checkForToken()
               .then(function() {
                 if(UserService.token !== 'no auth') {
                   $scope.authenticated = true;
                   Tinder.setToken(UserService.token)
                     .then(function() {
+                      getRecs();
+                      returnMatches();
                       $scope.init = true;
                     });
                 } else {
@@ -29,6 +46,9 @@
                 }
               });
           });
+
+
+
       }
 
       init();

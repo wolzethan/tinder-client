@@ -10,10 +10,13 @@
       vm.notLoggedIn = false;
 
       function init() {
-        if(Auth.loggedIn) {
-            return $location.path('/tool');
-        }
-        vm.notLoggedIn = true;
+        Auth.isLoggedIn()
+            .success(function(data) {
+              $location.path('/dashboard');
+            })
+            .error(function() {
+              vm.notLoggedIn = true;
+            })
       }
 
       init();
@@ -21,14 +24,14 @@
       vm.login = function() {
         Auth.login(vm.username, vm.password)
             .then(function() {
-              $location.path('/tool');
+              $location.path('/dashboard');
             });
       }
 
       vm.signup = function() {
         Auth.signup(vm.username, vm.password)
             .then(function() {
-              $location.path('/tool');
+              $location.path('/dashboard');
             });
       }
 

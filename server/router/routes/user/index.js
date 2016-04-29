@@ -2,19 +2,22 @@ var express = require('express');
 var router  = express.Router();
 var User    = require('../../../db/models/user');
 
+
+router.get('/logout', function(req, res, next) {
+  req.session.destroy(function (err) {
+      res.redirect('/');
+    });
+});
+
 router.use(UserAuthorized);
+
+router.use('/matches', require('./matches')(User));
 
 router.get('/', function(req, res, next) {
   return res.send({
     success : true,
     user    : req.user
   });
-});
-
-router.get('/logout', function(req, res, next) {
-  req.session.destroy(function (err) {
-      res.redirect('/');
-    });
 });
 
 router.post('/token', function(req, res, next) {

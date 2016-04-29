@@ -12,23 +12,12 @@
     function init() {
       if(!Auth.user) {
         $scope.loggedIn = false;
-        $location.path('/login');
       } else {
         $scope.loggedIn = true;
       }
     }
 
     init();
-
-    $scope.start = function(token) {
-      Tinder.setToken(token)
-        .success(function(data) {
-          if(data.accessToken) {
-            $scope.authenticated = true;
-          }
-        });
-    }
-
   }
 
   MainCtrl.$inject = injectParams;

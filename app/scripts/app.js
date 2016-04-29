@@ -11,9 +11,9 @@
             url : "/home",
             templateUrl : "views/pages/home.html"
           })
-          .state('tool', {
-            url : "/tool",
-            templateUrl : "views/partials/tool.html",
+          .state('dashboard', {
+            url : "/dashboard",
+            templateUrl : "views/partials/dashboard.html",
             controller  : "TinderCtrl"
           })
           .state('login', {

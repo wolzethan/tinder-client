@@ -19,8 +19,6 @@
         }
       });
 
-      
-
     }];
 
   app.controller('NavCtrl', NavCtrl);

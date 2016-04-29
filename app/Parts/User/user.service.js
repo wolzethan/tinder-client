@@ -36,6 +36,16 @@
                   })
     }
 
+    this.setMatches = function(arr) {
+      return $http.put('/user/matches', {matches : arr})
+                  .success(function(data) {
+                    console.log(data);
+                  })
+                  .error(function(err) {
+                    alert(err);
+                  });
+    }
+
       return this;
   }];
 

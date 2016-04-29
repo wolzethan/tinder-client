@@ -1,5 +1,6 @@
 body {
   padding-top: 30px;
+  background-color : #ECECED;
 }
 
 ul.people {
@@ -13,10 +14,9 @@ ul.people {
   cursor : pointer;
 }
 
-/*.main-view {
-  position: absolute;
-  left : 200px;
-}*/
+.body-app {
+    width : 100%;
+}
 
 .auth-form {
   max-width : 500px;

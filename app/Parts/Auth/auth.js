@@ -43,10 +43,15 @@
       return $http.get('/user')
               .success(function(data) {
                   auth.user = data.user;
+                  auth.loggedIn = true;
               })
               .error(function(err) {
                   $location.path('/login');
               });
+    }
+
+    this.isLoggedIn = function() {
+      return $http.get('/user');
     }
 
   }];

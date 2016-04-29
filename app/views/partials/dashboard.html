@@ -1,0 +1,40 @@
+<!-- INSERT TOKEN AREA -->
+<div class="text-center" ng-if="!authenticated && init">
+  <h2 class="text-primary">Please Enter Your AccessToken To Get Started</h2>
+
+  <div class="form-group">
+    <label>Access Token</label>
+    <input class="form-control"
+           ng-model="token"
+           placeholder="Place Your Tinder Access Token Here...">
+  </div>
+  <button
+    class="btn btn-lg btn-success"
+    ng-click="start(token)">
+    Start
+  </button>
+</div>
+<h1><span class="glyphicon glyphicon-dashboard"></span> Dashboard</h1>
+<div class="dashboard-container">
+  <panel-half-left>
+    <span class="page-header">Recommendations</span><br>
+    <div class="loading text-center" ng-if="!recs">
+      <span class="fa-spin glyphicon glyphicon-repeat"></span><br>
+    </div>
+    <rec-user ng-repeat="user in recs track by $index" datasource="user"></rec-user>
+  </panel-half-left>
+  <panel-half-right>
+    <h2>You have
+    <span class="large-match-number">{{matches.length}}</span>
+      Matches
+  </h2>
+
+  </panel-half-right>
+
+  <panel-middle>
+    MESSAGES?
+  </panel-middle>
+  <div class="loading text-center" ng-if="!init">
+    <span class="fa-spin glyphicon glyphicon-repeat"></span><br>
+  </div>
+</div>

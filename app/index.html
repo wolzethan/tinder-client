@@ -6,19 +6,21 @@
     <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
     <link href="styles/nav.css" rel="stylesheet">
+    <link href="styles/panels.css" rel="stylesheet">
     <link href="libs/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="tinderClient">
+    <div class="container-with-nav">
       <side-nav></side-nav>
       <div class="topNav">
         <span class="glyphicon glyphicon-menu-hamburger"></span>
+        <span class="text"><a ui-sref="dashboard">Tinder Assistant</a></span>
       </div>
-
-    <div class="main-view">
-        <div ui-view></div>
+      <div class="main-view">
+          <div ui-view></div>
+      </div>
     </div>
-
     <script src="libs/angular/angular.min.js"></script>
 
     <!-- MAIN APP FILE -->
@@ -35,11 +37,17 @@
     <script src="Parts/Auth/authCtrl.js"></script>
     <script src="Parts/Notifications/notification.service.js"></script>
 
+    <script src="Parts/Panels/panel.directive.left.js"></script>
+    <script src="Parts/Panels/panel.directive.right.js"></script>
+    <script src="Parts/Panels/panel.directive.middle.js"></script>
+
+
     <!-- SERVICES -->
     <script src="Parts/Tinder/tinder.service.js"></script>
     <script src="Parts/Tinder/tinder.potmatch.js"></script>
     <script src="Parts/Tinder/tinder.match.js"></script>
     <script src="Parts/Tinder/tinder.ctrl.js"></script>
+    <script src="Parts/Tinder/recommendations.js"></script>
 
     <script src="Parts/User/user.service.js"></script>
 
