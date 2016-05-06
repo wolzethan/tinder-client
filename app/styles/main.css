@@ -1,6 +1,25 @@
 body {
-  padding-top: 30px;
-  background-color : #ECECED;
+  background-color : #424242;
+}
+
+.dashboard-rec-display {
+  padding : 20px;
+  min-height : 500px;
+  border : 1px solid lightgrey;
+  margin : 30px;
+  background-color : white;
+}
+
+.rec-header {
+  height : 50px;
+  border-bottom : 1px solid lightgrey;
+  margin-top : 0;
+  margin-bottom : 20px;
+}
+
+#wrapper {
+    margin : 0 0 0 220px;
+    background-color : #ECECED;
 }
 
 ul.people {

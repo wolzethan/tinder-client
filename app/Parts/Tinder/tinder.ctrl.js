@@ -71,6 +71,7 @@
       $scope.likeOne = function(id) {
         Tinder.likeOne(id)
           .then(function() {
+            console.log(Tinder.results);
             $scope.likeResult = Tinder.results;
           })
       }

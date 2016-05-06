@@ -1,5 +1,5 @@
 <!-- INSERT TOKEN AREA -->
-<div class="text-center" ng-if="!authenticated && init">
+<div class="text-center col-lg-12" ng-if="!authenticated && init">
   <h2 class="text-primary">Please Enter Your AccessToken To Get Started</h2>
 
   <div class="form-group">
@@ -14,31 +14,47 @@
     Start
   </button>
 </div>
-<h1><span class="glyphicon glyphicon-dashboard"></span> Dashboard</h1>
-<div class="dashboard-container">
-  <panel-half-left>
-    <span class="page-header">Recommendations</span><br>
-    <div class="loading text-center" ng-if="!recs">
-      <span class="fa-spin glyphicon glyphicon-repeat"></span><br>
-      <h4>Loading Recommendations...</h4>
+<div class="row">
+<div class="col-lg-6">
+  <h1><span class="glyphicon glyphicon-dashboard"></span> Dashboard</h1>
+  <div class="dashboard-rec-display">
+    <div class="rec-header">
+      <h3 style="display: inline">Potential Matches</h3>
+      <span class="close">&times;</span>
     </div>
-  <div class="recommendation-container">
-    <rec-user ng-repeat="user in recs track by $index" datasource="user"></rec-user>
-  </div>
-    <button class="btn btn-tinder btn-block btn-bottom">Load More</button>
-  </panel-half-left>
-  <panel-half-right>
-    <!-- <h2>You have
-    <span class="large-match-number">{{matches.length}}</span>
-      Matches
-  </h2> -->
-    <match-view ng-repeat="match in matches track by $index" datasource="match"></match-view>
-  </panel-half-right>
 
-  <panel-middle>
-    MESSAGES?
-  </panel-middle>
-  <div class="loading text-center" ng-if="!init">
-    <span class="fa-spin glyphicon glyphicon-repeat"></span><br>
+    <h1 class="text-center" ng-if="!recs"><span class="fa-spin glyphicon glyphicon-repeat"></span></h1>
+    <div class="list-group">
+      <li class="list-group-item" ng-repeat="match in recs">
+        <div class="row">
+        <div class="col-xs-4">
+            <div class="user-photo">
+            <img ng-src="{{match.photos[0].processedFiles[2].url}}">
+          </div>
+        </div>
+        <div class="col-xs-5">
+        <div class="user-bio">
+          {{match.bio}}
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="accept-or-deny">
+          <button
+            class="btn btn-block btn-success"
+            ng-click="likeOne(match._id)">
+            Like
+          </button>
+          <button class="btn btn-block btn-danger">
+            Pass
+          </button>
+        </div>
+      </div>
+      </div>
+      </li>
+    </div>
   </div>
+</div>
+<div class="col-lg-3">
+
+</div>
 </div>
