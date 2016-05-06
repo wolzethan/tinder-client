@@ -7,7 +7,6 @@ var client  = new tinder.TinderClient();
       client.authorize(
         req.session.accessToken,
         req.session.userID, function() {
-
           client.getRecommendations(10, function(err, results) {
             if(err) {
               return res.status(401).send({

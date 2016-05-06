@@ -20,15 +20,19 @@
     <span class="page-header">Recommendations</span><br>
     <div class="loading text-center" ng-if="!recs">
       <span class="fa-spin glyphicon glyphicon-repeat"></span><br>
+      <h4>Loading Recommendations...</h4>
     </div>
+  <div class="recommendation-container">
     <rec-user ng-repeat="user in recs track by $index" datasource="user"></rec-user>
+  </div>
+    <button class="btn btn-tinder btn-block btn-bottom">Load More</button>
   </panel-half-left>
   <panel-half-right>
-    <h2>You have
+    <!-- <h2>You have
     <span class="large-match-number">{{matches.length}}</span>
       Matches
-  </h2>
-
+  </h2> -->
+    <match-view ng-repeat="match in matches track by $index" datasource="match"></match-view>
   </panel-half-right>
 
   <panel-middle>

@@ -24,7 +24,7 @@
                     Tinder.potentialMatches = res.data.results;
                   })
                   .error(function(err) {
-                    alert(err.error);
+                    alert("No Matches");
                   })
     }
 
