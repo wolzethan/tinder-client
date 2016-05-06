@@ -99,7 +99,7 @@ ul.people {
 
 .ibox-header {
   border-bottom : 1px solid lightgrey;
-  padding : 15px;
+  padding : 0 15px 15px 15px;
   margin : 0 0 10px 0;
 }
 
