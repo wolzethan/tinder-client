@@ -89,3 +89,29 @@ ul.people {
   color: white;
   font-family: 'Squada One', cursive;
 }
+
+.ibox {
+  border : 1px solid lightgrey;
+  background-color : white;
+  padding : 20px;
+  margin : 0 0 10px 10px;
+}
+
+.ibox-header {
+  border-bottom : 1px solid lightgrey;
+  padding : 15px;
+  margin : 0 0 10px 0;
+}
+
+.info- {
+  margin-top : 10px;
+}
+
+.large-match-number {
+  font-size : 50px;
+  color : #FC735D;
+}
+
+.header {
+  display : inline;
+}

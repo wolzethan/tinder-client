@@ -17,8 +17,8 @@
 <div class="row">
 <div class="col-lg-6">
   <!-- <h1><span class="glyphicon glyphicon-dashboard"></span> Dashboard</h1> -->
-  <div class="dashboard-rec-display">
-    <div class="rec-header">
+  <div class="ibox">
+    <div class="ibox-header">
       <h3 style="display: inline">Potential Matches</h3>
       <span class="close">&times;</span>
     </div>
@@ -28,8 +28,9 @@
       <li class="list-group-item" ng-repeat="match in recs">
         <div class="row">
         <div class="col-xs-4">
-            <div class="user-photo">
+            <div class="user-photo text-center">
             <img ng-src="{{match.photos[0].processedFiles[2].url}}" class="circle">
+            <h5>{{match.name}}</h5>
           </div>
         </div>
         <div class="col-xs-5">
@@ -54,7 +55,44 @@
     </div>
   </div>
 </div>
-<div class="col-lg-3">
 
+<div class="col-lg-3">
+  <div class="ibox">
+    <div class="ibox-header">
+      <h3 class="header">Total Matches</h3>
+      <span class="close">&times;</span>
+    </div>
+
+    <div class="large-match-number text-center">
+      {{matches.length}}
+    </div>
+  </div>
+  <div class="ibox">
+    <div class="ibox-header">
+      <h3 class="header">Recent Matches</h3>
+      <span class="close">&times;</span>
+    </div>
+    <div class="list-group">
+  <li class="list-group-item user" ng-repeat="user in matches | orderBy : '-created_date' | limitTo : 5">
+    <div class="row">
+    <div class="col-xs-3 text-center">
+      <img class="circle" ng-src="{{user.person.photos[0].processedFiles[3].url}}">
+      <br><h5>{{user.person.name}}</h5>
+    </div>
+    <div class="col-lg-6">
+      {{user.person.bio}}
+    </div>
+    <div class="col-lg-3">
+      <button class="btn btn-success pull-right">
+        Messages
+      </button>
+    </div>
+  </div>
+  </li>
+</div>
+
+  </div>
+</div>
+<div class="col-lg-3">
 </div>
 </div>
