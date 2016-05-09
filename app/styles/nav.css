@@ -82,6 +82,7 @@ ul > li.collapser {
 
 .navbar-tinder {
   background-color : #FC735D;
+  border-radius : 0;
 }
 
 a.nav-link {

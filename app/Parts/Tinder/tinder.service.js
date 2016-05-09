@@ -24,17 +24,35 @@
                     Tinder.potentialMatches = res.data.results;
                   })
                   .error(function(err) {
-                    alert("No Matches");
+                    swal({
+                      title: "Dang!",
+                      text: "No more recommendations try later...",
+                      type: "error",
+                      confirmButtonText: "Okay"
+                    });
                   })
     }
 
     this.likeOne = function(id) {
       return $http.post('/api/like', {id : id})
                   .success(function(data) {
+                    if(data.result.match) {
+                      swal({
+                        title: "Sweet!",
+                        text: "You Matched!",
+                        type: "success",
+                        confirmButtonText: "Cool"
+                      });
+                    }
                     Tinder.results = data;
                   })
                   .error(function(err) {
-                    alert(err);
+                    swal({
+                      title: "Error!",
+                      text: err,
+                      type: "error",
+                      confirmButtonText: "Okay"
+                    });
                   })
     }
     // TODO: Fix this function
@@ -48,7 +66,12 @@
                 Tinder.history = user.data;
               })
               .error(function(err) {
-                alert(err);
+                swal({
+                  title: "Error!",
+                  text: err,
+                  type: "error",
+                  confirmButtonText: "Okay"
+                });
               });
     }
 

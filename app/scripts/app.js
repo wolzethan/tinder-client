@@ -1,6 +1,7 @@
 (function(){
     var app = angular.module('tinderClient', [
-      'ui.router'
+      'ui.router',
+      'ngTinder'
     ]);
 
     app.config(function($urlRouterProvider, $stateProvider){

@@ -1,0 +1,29 @@
+<div id="tinderModal" ng-show="show">
+  <div class="tinderModal-content" ng-style="dialogStyle">
+    <div class="tui-header">
+      <span class="close" ng-click="hideModal()">&times;</span>
+      <h4>Messages with {{user.person.name}}</h4>
+    </div>
+    <div class="row">
+    <div class="message-box col-sm-12">
+      <!-- This will handle messages -->
+      <!-- Most likely will be a directive -->
+
+      <div class='placeholder text-center' ng-if="!user.messages.length">
+        <img ng-src="{{user.person.photos[0].processedFiles[2].url}}" class="circle">
+        <h3>Looks Like You Need to Say Something!</h3>
+      </div>
+
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-sm-12">
+      <input ng-model="message"
+        class="tuiInput btn-block"
+        placeholder="Say Something"
+        ng-enter="sendMessage(user._id)">
+
+    </div>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,7 @@
         Tinder.getHistory()
               .then(function() {
                 $scope.history = Tinder.history;
+                $scope.matches = Tinder.history.matches;
                 UserService.setMatches(Tinder.history.matches);
               });
       }
@@ -57,6 +58,13 @@
           });
       }
 
+      $scope.currentUser = {};
+
+      $scope.setUserAndShowModal = function(user) {
+        $scope.currentUser = user;
+        $scope.modalVisible = true;
+      }
+
       $scope.likeAll = function() {
         var accounts = angular.copy($scope.recs);
         var results = [];
@@ -71,9 +79,16 @@
       $scope.likeOne = function(id) {
         Tinder.likeOne(id)
           .then(function() {
-            console.log(Tinder.results);
             $scope.likeResult = Tinder.results;
-          })
+            console.log(Tinder.results);
+            if($scope.likeResult.result.match) {
+              Tinder.getHistory()
+                    .then(function() {
+                      $scope.matches = Tinder.history.matches;
+                      UserService.setMatches(Tinder.history.matches);
+                    });
+            }
+          });
       }
 
       $scope.getHistory = function() {
@@ -87,6 +102,7 @@
         Tinder.sendMessage(id, message)
           .then(function() {
             $scope.lastMessage = Tinder.lastMessageResult;
+            console.log($scope.lastMessage);
           });
       }
 

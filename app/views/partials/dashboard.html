@@ -14,6 +14,27 @@
     Start
   </button>
 </div>
+
+<div class="row">
+  <div class="col-md-3">
+    <div id="tuiModal"></div>
+      <!-- <div class="ibox">
+        <div class="ibox-header">
+          <h3 class="header">Total Matches</h3>
+          <span class="close">&times;</span>
+        </div>
+
+        <div class="large-match-number text-center">
+          {{matches.length}}
+        </div>
+      </div> -->
+    </div>
+    <div class="col-lg-3">
+
+    </div>
+</div>
+
+<!-- ROW 1 -->
 <div class="row">
 <div class="col-lg-6">
   <!-- <h1><span class="glyphicon glyphicon-dashboard"></span> Dashboard</h1> -->
@@ -56,17 +77,7 @@
   </div>
 </div>
 
-<div class="col-lg-3">
-  <div class="ibox">
-    <div class="ibox-header">
-      <h3 class="header">Total Matches</h3>
-      <span class="close">&times;</span>
-    </div>
-
-    <div class="large-match-number text-center">
-      {{matches.length}}
-    </div>
-  </div>
+<div class="col-lg-6">
   <div class="ibox">
     <div class="ibox-header">
       <h3 class="header">Recent Matches</h3>
@@ -83,25 +94,27 @@
       {{user.person.bio}}
     </div>
     <div class="col-lg-3">
-      <button class="btn btn-success pull-right">
+      <button
+        class="btn btn-success pull-right"
+        ng-click="setUserAndShowModal(user)">
         Messages
       </button>
     </div>
+    </div>
+    </li>
   </div>
-  </li>
+  </div>
 </div>
 
-  </div>
 </div>
-<div class="col-lg-3">
-  <div class="ibox">
-    <div class="ibox-header">
-      <h3 class="header">Messages with {{matches[0].person.name}}</h3>
-      <span class="close">&times;</span>
-    </div>
-    <div class="message-container">
-      Hey
-    </div>
-  </div>
+
+<!-- END ROW 1 -->
 </div>
-</div>
+
+<message-modal
+  user="currentUser"
+  options="modalOptions"
+  show="modalVisible"
+  send="sendMessage">
+
+</message-modal>
